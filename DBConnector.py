@@ -1,5 +1,5 @@
-import mysql.connector
 import pandas.io.sql as sql
+from sqlalchemy import create_engine, exc
 
 
 class DBConnector:
@@ -8,34 +8,28 @@ class DBConnector:
         self.dbname = dbname
         self.username = username
         self.password = password
+        self.engine = None
         self.connection = None
         self.cursor = None
 
     def connect(self):
         try:
-            self.connection = mysql.connector.connect(host=self.host,
-                                                      database=self.dbname,
-                                                      user=self.username,
-                                                      password=self.password)
-            print("Connected to MySQL Server version ", self.connection.get_server_info())
-        except mysql.connector.Error as err:
-            print("Error while connecting to Database.", err)
+            self.engine = create_engine(f"mysql+mysqlconnector://"
+                                        f"{self.username}:{self.password}@{self.host}/{self.dbname}")
+            self.connection = self.engine.connect()
+            print("Connected to database at host", self.engine.url.host)
+        except exc.SQLAlchemyError as err:
             raise SystemExit(err)
 
     def update_prices(self, rates):
         try:
-            self.cursor = self.connection.cursor()
             query = f"UPDATE product SET" \
                     f" UnitPriceUSD = ROUND(UnitPrice * {rates.USD}, 2)," \
                     f" UnitPriceEURO = ROUND(UnitPrice * {rates.EUR}, 2)"
-            self.cursor.execute(query)
-            self.connection.commit()
-        except mysql.connector.Error as err:
+            self.connection.execute(query)
+            print("Update successful")
+        except exc.SQLAlchemyError as err:
             print("Updating failed", err)
-        finally:
-            if self.cursor is not None:
-                self.cursor.close()
-                print("Cursor closed.")
 
     def get_products(self):
         try:
@@ -43,12 +37,9 @@ class DBConnector:
                                     " unitpriceusd,unitpriceeuro, ranking, productdesc, unitsinstock, unitsinorder"
                                     " from product"), self.connection)
             records.to_excel("products.xlsx")
-        except mysql.connector.Error as err:
+            print("Created file products.xlsx")
+        except exc.SQLAlchemyError as err:
             print("Query failed", err)
-        finally:
-            if self.cursor is not None:
-                self.cursor.close()
-                print("Cursor closed.")
 
     def close(self):
         if self.connection is not None:
