@@ -23,11 +23,6 @@ class Rates:
         except requests.exceptions.RequestException as err:
             print("Could not get rates from NBP")
             raise SystemExit(err)
+        else:
+            print("Rates succesfully obtained")
 
-    def convert_to_usd(self, price):
-        price = price * self.USD
-        return price.quantize(Decimal('.01'), ROUND_HALF_UP)
-
-    def convert_to_eur(self, price):
-        price = price * self.EUR
-        return price.quantize(Decimal('.01'), ROUND_HALF_UP)
