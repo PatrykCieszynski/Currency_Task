@@ -25,9 +25,9 @@ class Rates:
             raise SystemExit(err)
 
     def convert_to_usd(self, price):
-        price = price / self.USD
+        price = price * self.USD
         return price.quantize(Decimal('.01'), ROUND_HALF_UP)
 
     def convert_to_eur(self, price):
-        price = price / self.EUR
+        price = price * self.EUR
         return price.quantize(Decimal('.01'), ROUND_HALF_UP)

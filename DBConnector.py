@@ -1,4 +1,5 @@
 import mysql.connector
+import pandas.io.sql as sql
 
 
 class DBConnector:
@@ -21,13 +22,27 @@ class DBConnector:
             print("Error while connecting to Database.", err)
             raise SystemExit(err)
 
-    def get_products(self):
+    def update_prices(self, rates):
         try:
             self.cursor = self.connection.cursor()
-            self.cursor.execute("select * from product")
-            records = self.cursor.fetchall()
-            for record in records:
-                print(record)
+            query = f"UPDATE product SET" \
+                    f" UnitPriceUSD = ROUND(UnitPrice * {rates.USD}, 2)," \
+                    f" UnitPriceEURO = ROUND(UnitPrice * {rates.EUR}, 2)"
+            self.cursor.execute(query)
+            self.connection.commit()
+        except mysql.connector.Error as err:
+            print("Updating failed", err)
+        finally:
+            if self.cursor is not None:
+                self.cursor.close()
+                print("Cursor closed.")
+
+    def get_products(self):
+        try:
+            records = sql.read_sql(("select productid, departmentid, category, idsku, productname, quantity, unitprice,"
+                                    " unitpriceusd,unitpriceeuro, ranking, productdesc, unitsinstock, unitsinorder"
+                                    " from product"), self.connection)
+            records.to_excel("products.xlsx")
         except mysql.connector.Error as err:
             print("Query failed", err)
         finally:
