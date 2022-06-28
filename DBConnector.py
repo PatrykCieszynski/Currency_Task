@@ -1,5 +1,8 @@
 import pandas.io.sql as sql
 from sqlalchemy import create_engine, exc
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DBConnector:
@@ -14,40 +17,49 @@ class DBConnector:
 
     def connect(self):
         try:
+            logger.info(f"Trying to connect to {self.host}/{self.dbname} as {self.username}")
             self.engine = create_engine(f"mysql+mysqlconnector://"
                                         f"{self.username}:{self.password}@{self.host}/{self.dbname}")
             self.connection = self.engine.connect()
         except exc.SQLAlchemyError as err:
-            raise SystemExit(err)
+            logger.error(err)
+            raise ConnectionError(err)
         else:
-            return "Connected to database at host: " + self.engine.url.host
+            logger.info("Connection successfully set")
 
     def update_prices(self, rates):
         try:
+            logger.info(f"Trying to update prices with USD {rates.USD}, EUR {rates.EUR}")
             query = f"UPDATE product SET" \
                     f" UnitPriceUSD = ROUND(UnitPrice * {rates.USD}, 2)," \
                     f" UnitPriceEURO = ROUND(UnitPrice * {rates.EUR}, 2)"
             self.connection.execute(query)
         except exc.SQLAlchemyError as err:
+            logger.error(err)
             print("Updating failed", err)
         else:
-            return "Update successful"
+            logger.info("Prices successfully updated")
 
     def get_products(self):
         try:
+            logger.info("Trying to query products from database")
             records = sql.read_sql(("select ProductID, DepartmentID, Category, IDSKU, ProductName, Quantity, UnitPrice,"
                                     " UnitPriceUSD, UnitPriceEURO, Ranking, UnitsInStock, UnitsInOrder"
                                     " from product"), self.connection)
+        except exc.SQLAlchemyError as err:
+            logger.error(err)
+            print("Query failed", err)
+        else:
+            logger.info("Products successfully queried")
             try:
                 records.to_excel("products.xlsx")
             except PermissionError as err:
+                logger.error(err)
                 print("Saving to file failed", err)
             else:
-                return "Created file products.xlsx"
-        except exc.SQLAlchemyError as err:
-            print("Query failed", err)
+                logger.info("Excel file successfully created")
 
     def close(self):
         if self.connection is not None:
             self.connection.close()
-            return "Connection to Database closed."
+            logger.info(f"Closing connection to {self.host}/{self.dbname} as {self.username}")

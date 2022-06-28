@@ -2,45 +2,85 @@ from Rates import Rates
 from DBConnector import DBConnector
 from threading import Thread
 from time import sleep
+import os
+import logging
 
 
 def update_prices_in_second_thread():
-    global connected
+    global is_connected
     while True:
-        if not connected:
-            connected = True
-            rates = Rates()
-            connection = DBConnector("127.0.0.1", "mydb", "root", "")
-            connection.connect()
-            connection.update_prices(rates)
-            connection.close()
-            connected = False
+        connection = None
+        success = False
+        logger.info("Trying to update prices as cyclic task")
+        if not is_connected:
+            try:
+                is_connected = True
+                rates = Rates()
+                connection = DBConnector("127.0.0.1", "mydb", "root", "")
+                connection.connect()
+                connection.update_prices(rates)
+                success = True
+            except:
+                print("Updating prices as cyclic task FAILED")
+                print("Retraing in 5 minutes")
+                logger.error("Updating prices as cyclic task FAILED")
+                logger.error("Retrying in 5 minutes")
+            finally:
+                if connection is not None:
+                    connection.close()
+                is_connected = False
+                if not success:
+                    sleep(60 * 5)
+                    continue
         else:
+            logger.info("Connection occupied, waiting 60 seconds")
             sleep(60)
             continue
+        logger.info("Sleeping 12 hours")
         sleep(3600 * 12)
 
 
 def update_prices():
-    rates = Rates()
     connection = DBConnector("localhost", "mydb", "root", "")
-    print(connection.connect())
-    print(connection.update_prices(rates))
-    print(connection.close())
+    try:
+        rates = Rates()
+        connection.connect()
+        connection.update_prices(rates)
+    except ConnectionError:
+        print("Updating failed")
+    else:
+        print("Updating successful")
+    finally:
+        connection.close()
 
 
 def generate_excel():
     connection = DBConnector("localhost", "mydb", "root", "")
-    print(connection.connect())
-    print(connection.get_products())
-    print(connection.close())
+    try:
+        connection.connect()
+        connection.get_products()
+    except ConnectionError:
+        print("Creating Excel file failed")
+    else:
+        print("Creating Excel successful")
+    finally:
+        connection.close()
 
 
 if __name__ == '__main__':
-    connected = False
+    path = "./logs"
+    if not os.path.exists(path):
+        os.makedirs("logs")
+    logger = logging
+    logger.basicConfig(filename="./logs/mainlog.log",
+                       level=logging.INFO,
+                       format="%(asctime)s | %(name)s | %(levelname)s  | %(message)s")
+
+    is_connected = False
     t1 = Thread(target=update_prices_in_second_thread)
     t1.daemon = True
     t1.start()
+
     user_input = ""
     while user_input.lower() != 'q':
         print("Avaiable Commands:")
@@ -49,18 +89,24 @@ if __name__ == '__main__':
         print("q - Quits program")
         print("By default database is updated every 12 hours when this app is open.")
         user_input = input()
+        logger.info(f"Got '{user_input}' from user")
         match user_input.lower():
             case "u":
-                if not connected:
+                logger.info("Trying to update prices on demand")
+                if not is_connected:
                     update_prices()
                 else:
+                    logger.info("Connection was occupied, skipping user task")
                     print("App is updating database, try again in a few seconds")
             case "g":
-                if not connected:
+                logger.info("Trying to create Excel on demand")
+                if not is_connected:
                     generate_excel()
                 else:
+                    logger.info("Connection was occupied, skipping user task")
                     print("App is updating database, try again in a few seconds")
             case "q":
+                logger.info("Closing app")
                 SystemExit()
             case _:
                 print("Wrong command.")
