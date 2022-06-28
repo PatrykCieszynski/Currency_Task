@@ -23,6 +23,3 @@ class Rates:
         except requests.exceptions.RequestException as err:
             print("Could not get rates from NBP")
             raise SystemExit(err)
-        else:
-            print("Rates succesfully obtained")
-

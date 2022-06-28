@@ -20,7 +20,7 @@ class DBConnector:
         except exc.SQLAlchemyError as err:
             raise SystemExit(err)
         else:
-            print("Connected to database at host", self.engine.url.host)
+            return "Connected to database at host: " + self.engine.url.host
 
     def update_prices(self, rates):
         try:
@@ -31,7 +31,7 @@ class DBConnector:
         except exc.SQLAlchemyError as err:
             print("Updating failed", err)
         else:
-            print("Update successful")
+            return "Update successful"
 
     def get_products(self):
         try:
@@ -43,11 +43,11 @@ class DBConnector:
             except PermissionError as err:
                 print("Saving to file failed", err)
             else:
-                print("Created file products.xlsx")
+                return "Created file products.xlsx"
         except exc.SQLAlchemyError as err:
             print("Query failed", err)
 
     def close(self):
         if self.connection is not None:
             self.connection.close()
-            print("Connection to Database closed.")
+            return "Connection to Database closed."
