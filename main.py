@@ -1,3 +1,5 @@
+import threading
+
 from Rates import Rates
 from DBConnector import DBConnector
 from threading import Thread
@@ -7,35 +9,30 @@ import logging
 
 
 def update_prices_in_second_thread():
-    global is_connected
+    global is_connected_lock
     while True:
         connection = None
         success = False
         logger.info("Trying to update prices as cyclic task")
-        if not is_connected:
-            try:
-                is_connected = True
-                rates = Rates()
-                connection = DBConnector("127.0.0.1", "mydb", "root", "")
-                connection.connect()
-                connection.update_prices(rates)
-                success = True
-            except:
-                print("Updating prices as cyclic task FAILED")
-                print("Retraing in 5 minutes")
-                logger.error("Updating prices as cyclic task FAILED")
-                logger.error("Retrying in 5 minutes")
-            finally:
-                if connection is not None:
-                    connection.close()
-                is_connected = False
-                if not success:
-                    sleep(60 * 5)
-                    continue
-        else:
-            logger.info("Connection occupied, waiting 60 seconds")
-            sleep(60)
-            continue
+        is_connected_lock.acquire()
+        try:
+            rates = Rates()
+            connection = DBConnector("127.0.0.1", "mydb", "root", "")
+            connection.connect()
+            connection.update_prices(rates)
+            success = True
+        except:
+            print("Updating prices as cyclic task FAILED")
+            print("Retraing in 5 minutes")
+            logger.error("Updating prices as cyclic task FAILED")
+            logger.error("Retrying in 5 minutes")
+        finally:
+            if connection is not None:
+                connection.close()
+            is_connected_lock.release()
+            if not success:
+                sleep(60 * 5)
+                continue
         logger.info("Sleeping 12 hours")
         sleep(3600 * 12)
 
@@ -76,7 +73,7 @@ if __name__ == '__main__':
                        level=logging.INFO,
                        format="%(asctime)s | %(name)s | %(levelname)s  | %(message)s")
 
-    is_connected = False
+    is_connected_lock = threading.Lock()
     t1 = Thread(target=update_prices_in_second_thread)
     t1.daemon = True
     t1.start()
@@ -92,19 +89,15 @@ if __name__ == '__main__':
         logger.info(f"Got '{user_input}' from user")
         match user_input.lower():
             case "u":
+                is_connected_lock.acquire()
                 logger.info("Trying to update prices on demand")
-                if not is_connected:
-                    update_prices()
-                else:
-                    logger.info("Connection was occupied, skipping user task")
-                    print("App is updating database, try again in a few seconds")
+                update_prices()
+                is_connected_lock.release()
             case "g":
+                is_connected_lock.acquire()
                 logger.info("Trying to create Excel on demand")
-                if not is_connected:
-                    generate_excel()
-                else:
-                    logger.info("Connection was occupied, skipping user task")
-                    print("App is updating database, try again in a few seconds")
+                generate_excel()
+                is_connected_lock.release()
             case "q":
                 logger.info("Closing app")
                 SystemExit()
