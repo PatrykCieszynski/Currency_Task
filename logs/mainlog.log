@@ -1,0 +1,233 @@
+2022-06-29 11:30:51,427 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 11:30:51,427 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 11:30:51,568 | Rates | INFO  | USD rate successfully set
+2022-06-29 11:30:51,568 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 11:30:51,659 | Rates | INFO  | EUR rate successfully set
+2022-06-29 11:30:51,660 | DBConnector | INFO  | Trying to connect to 127.0.0.1/mydb as root
+2022-06-29 11:30:51,836 | DBConnector | INFO  | Connection successfully set
+2022-06-29 11:30:51,836 | DBConnector | INFO  | Trying to update prices with USD 4.43770000000000042206238504149951040744781494140625, EUR 4.7004000000000001335820343228988349437713623046875
+2022-06-29 11:30:51,855 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 11:30:51,856 | DBConnector | INFO  | Closing connection to 127.0.0.1/mydb as root
+2022-06-29 11:30:51,856 | root | INFO  | Sleeping 12 hours
+2022-06-29 11:31:49,353 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 11:31:49,353 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 11:31:49,459 | Rates | INFO  | USD rate successfully set
+2022-06-29 11:31:49,459 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 11:31:49,549 | Rates | INFO  | EUR rate successfully set
+2022-06-29 11:31:49,549 | DBConnector | INFO  | Trying to connect to 127.0.0.1/mydb as root
+2022-06-29 11:31:49,592 | DBConnector | INFO  | Connection successfully set
+2022-06-29 11:31:49,592 | DBConnector | INFO  | Trying to update prices with USD 4.43770000000000042206238504149951040744781494140625, EUR 4.7004000000000001335820343228988349437713623046875
+2022-06-29 11:31:49,592 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 11:31:49,593 | DBConnector | INFO  | Closing connection to 127.0.0.1/mydb as root
+2022-06-29 11:31:49,593 | root | INFO  | Sleeping 12 hours
+2022-06-29 11:32:37,392 | root | INFO  | Got 'u' from user
+2022-06-29 11:32:37,392 | root | INFO  | Trying to update prices on demand
+2022-06-29 11:32:37,392 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 11:32:44,505 | Rates | INFO  | USD rate successfully set
+2022-06-29 11:32:44,505 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 11:32:44,593 | Rates | INFO  | EUR rate successfully set
+2022-06-29 11:32:44,593 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 11:32:44,596 | DBConnector | INFO  | Connection successfully set
+2022-06-29 11:32:44,596 | DBConnector | INFO  | Trying to update prices with USD 4.43770000000000042206238504149951040744781494140625, EUR 4.7004000000000001335820343228988349437713623046875
+2022-06-29 11:32:44,596 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 11:32:44,596 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:13:42,169 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 14:13:42,169 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:13:42,273 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:13:42,273 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:13:42,367 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:13:42,367 | DBConnector | INFO  | Trying to connect to localhost/mydbb as root
+2022-06-29 14:13:42,406 | DBConnector | ERROR  | (mysql.connector.errors.ProgrammingError) 1049 (42000): Unknown database 'mydbb'
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-06-29 14:13:42,406 | root | ERROR  | Updating prices as cyclic task FAILED
+2022-06-29 14:13:42,406 | root | ERROR  | Retrying in 5 minutes
+2022-06-29 14:14:04,081 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 14:14:04,081 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:14:04,180 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:14:04,180 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:14:04,265 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:14:04,265 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:14:04,306 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:14:04,306 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 14:14:04,308 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 14:14:04,308 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:14:04,308 | root | INFO  | Sleeping 12 hours
+2022-06-29 14:15:30,993 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 14:15:30,994 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:15:31,083 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:15:31,084 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:15:31,177 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:15:31,177 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:15:31,218 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:15:31,218 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 14:15:31,218 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 14:15:31,219 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:15:31,219 | root | INFO  | Sleeping 12 hours
+2022-06-29 14:15:36,714 | root | INFO  | Got 'u' from user
+2022-06-29 14:15:36,714 | root | INFO  | Trying to update prices on demand
+2022-06-29 14:15:36,715 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:15:36,807 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:15:36,807 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:15:36,901 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:15:36,901 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:15:36,903 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:15:36,903 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 14:15:36,903 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 14:15:36,903 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:15:38,837 | root | INFO  | Got 'g' from user
+2022-06-29 14:15:38,837 | root | INFO  | Trying to create Excel on demand
+2022-06-29 14:15:38,837 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:15:38,839 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:15:38,839 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 14:15:38,845 | DBConnector | INFO  | Products successfully queried
+2022-06-29 14:15:39,028 | DBConnector | INFO  | Excel file successfully created
+2022-06-29 14:15:39,028 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:15:41,095 | root | INFO  | Got 'q' from user
+2022-06-29 14:15:41,095 | root | INFO  | Closing app
+2022-06-29 14:23:46,395 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 14:23:46,395 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:23:46,497 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:23:46,497 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:23:46,589 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:23:46,589 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:23:46,632 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:23:46,632 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 14:23:46,632 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 14:23:46,632 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:23:46,632 | root | INFO  | Sleeping 12 hours
+2022-06-29 14:23:57,675 | root | INFO  | Got 'u' from user
+2022-06-29 14:23:57,675 | root | INFO  | Trying to update prices on demand
+2022-06-29 14:23:57,675 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:23:57,768 | Rates | INFO  | USD rate successfully set
+2022-06-29 14:23:57,768 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 14:23:57,861 | Rates | INFO  | EUR rate successfully set
+2022-06-29 14:23:57,861 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:23:57,863 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:23:57,863 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 14:23:57,863 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 14:23:57,863 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:24:04,827 | root | INFO  | Got 'g' from user
+2022-06-29 14:24:04,828 | root | INFO  | Trying to create Excel on demand
+2022-06-29 14:24:04,828 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 14:24:04,830 | DBConnector | INFO  | Connection successfully set
+2022-06-29 14:24:04,830 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 14:24:04,835 | DBConnector | INFO  | Products successfully queried
+2022-06-29 14:24:04,975 | DBConnector | INFO  | Excel file successfully created
+2022-06-29 14:24:04,975 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 14:47:33,558 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 14:47:33,558 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 14:47:33,668 | Rates | ERROR  | Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2022-06-29 14:47:33,668 | root | ERROR  | Updating prices as cyclic task FAILED
+2022-06-29 14:47:33,668 | root | ERROR  | Retrying in 5 minutes
+2022-06-29 15:47:29,821 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 15:47:29,822 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:47:29,919 | Rates | INFO  | USD rate successfully set
+2022-06-29 15:47:29,920 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 15:47:29,998 | Rates | INFO  | EUR rate successfully set
+2022-06-29 15:47:29,998 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 15:47:30,040 | DBConnector | INFO  | Connection successfully set
+2022-06-29 15:47:30,040 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 15:47:30,041 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 15:47:30,041 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 15:47:30,041 | root | INFO  | Sleeping 12 hours
+2022-06-29 15:47:36,757 | root | INFO  | Got 'u' from user
+2022-06-29 15:47:36,757 | root | INFO  | Trying to update prices on demand
+2022-06-29 15:47:36,757 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:47:36,839 | Rates | INFO  | USD rate successfully set
+2022-06-29 15:47:36,839 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 15:47:36,926 | Rates | INFO  | EUR rate successfully set
+2022-06-29 15:47:36,926 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 15:47:36,927 | DBConnector | INFO  | Connection successfully set
+2022-06-29 15:47:36,928 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 15:47:36,928 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 15:47:36,928 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 15:47:38,541 | root | INFO  | Got 'g' from user
+2022-06-29 15:47:38,541 | root | INFO  | Trying to create Excel on demand
+2022-06-29 15:47:38,541 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 15:47:38,543 | DBConnector | INFO  | Connection successfully set
+2022-06-29 15:47:38,543 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 15:47:38,543 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 15:47:38,548 | DBConnector | INFO  | Products successfully queried
+2022-06-29 15:47:38,689 | DBConnector | INFO  | Excel file successfully created
+2022-06-29 15:47:38,689 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 15:47:39,660 | root | INFO  | Got 'q' from user
+2022-06-29 15:47:39,661 | root | INFO  | Closing app
+2022-06-29 15:47:49,405 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 15:47:49,405 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:47:49,512 | Rates | ERROR  | Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2022-06-29 15:47:49,512 | root | ERROR  | Updating prices as cyclic task FAILED
+2022-06-29 15:47:49,512 | root | ERROR  | Retrying in 5 minutes
+2022-06-29 15:47:56,724 | root | INFO  | Got 'g' from user
+2022-06-29 15:47:56,724 | root | INFO  | Trying to create Excel on demand
+2022-06-29 15:47:56,724 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 15:47:56,765 | DBConnector | INFO  | Connection successfully set
+2022-06-29 15:47:56,765 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 15:47:56,765 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 15:47:56,770 | DBConnector | INFO  | Products successfully queried
+2022-06-29 15:47:56,910 | DBConnector | INFO  | Excel file successfully created
+2022-06-29 15:47:56,911 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 15:47:59,061 | root | INFO  | Got 'u' from user
+2022-06-29 15:47:59,061 | root | INFO  | Trying to update prices on demand
+2022-06-29 15:47:59,061 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:47:59,147 | Rates | ERROR  | Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+2022-06-29 15:48:01,468 | root | INFO  | Got 'q' from user
+2022-06-29 15:48:01,468 | root | INFO  | Closing app
+2022-06-29 15:50:23,401 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 15:50:23,401 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:50:23,516 | Rates | INFO  | USD rate successfully set
+2022-06-29 15:50:23,516 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 15:50:23,617 | Rates | INFO  | EUR rate successfully set
+2022-06-29 15:50:23,617 | DBConnector | INFO  | Trying to connect to localhost/mydbb as root
+2022-06-29 15:50:23,660 | DBConnector | ERROR  | (mysql.connector.errors.ProgrammingError) 1049 (42000): Unknown database 'mydbb'
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-06-29 15:50:23,660 | root | ERROR  | Updating prices as cyclic task FAILED
+2022-06-29 15:50:23,660 | root | ERROR  | Retrying in 5 minutes
+2022-06-29 15:50:29,792 | root | INFO  | Got 'g' from user
+2022-06-29 15:50:29,792 | root | INFO  | Trying to create Excel on demand
+2022-06-29 15:50:29,792 | DBConnector | INFO  | Trying to connect to localhost/mydbb as root
+2022-06-29 15:50:29,793 | DBConnector | ERROR  | (mysql.connector.errors.ProgrammingError) 1049 (42000): Unknown database 'mydbb'
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-06-29 15:50:31,960 | root | INFO  | Got 'u' from user
+2022-06-29 15:50:31,960 | root | INFO  | Trying to update prices on demand
+2022-06-29 15:50:31,960 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 15:50:32,048 | Rates | INFO  | USD rate successfully set
+2022-06-29 15:50:32,049 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 15:50:32,156 | Rates | INFO  | EUR rate successfully set
+2022-06-29 15:50:32,156 | DBConnector | INFO  | Trying to connect to localhost/mydbb as root
+2022-06-29 15:50:32,157 | DBConnector | ERROR  | (mysql.connector.errors.ProgrammingError) 1049 (42000): Unknown database 'mydbb'
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2022-06-29 15:50:34,687 | root | INFO  | Got 'q' from user
+2022-06-29 15:50:34,687 | root | INFO  | Closing app
+2022-06-29 17:47:07,935 | root | INFO  | Trying to update prices as cyclic task
+2022-06-29 17:47:07,936 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 17:47:08,054 | Rates | INFO  | USD rate successfully set
+2022-06-29 17:47:08,054 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 17:47:08,151 | Rates | INFO  | EUR rate successfully set
+2022-06-29 17:47:08,151 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 17:47:08,195 | DBConnector | INFO  | Connection successfully set
+2022-06-29 17:47:08,195 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 17:47:08,196 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 17:47:08,196 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 17:47:08,196 | root | INFO  | Sleeping 12 hours
+2022-06-29 17:47:25,035 | root | INFO  | Got 'u' from user
+2022-06-29 17:47:25,035 | root | INFO  | Trying to update prices on demand
+2022-06-29 17:47:25,035 | Rates | INFO  | Getting USD rate from NBP
+2022-06-29 17:47:25,130 | Rates | INFO  | USD rate successfully set
+2022-06-29 17:47:25,130 | Rates | INFO  | Getting EUR rate from NBP
+2022-06-29 17:47:25,233 | Rates | INFO  | EUR rate successfully set
+2022-06-29 17:47:25,234 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 17:47:25,236 | DBConnector | INFO  | Connection successfully set
+2022-06-29 17:47:25,236 | DBConnector | INFO  | Trying to update prices with USD 4.45329999999999959214846967370249330997467041015625, EUR 4.68090000000000028279600883251987397670745849609375
+2022-06-29 17:47:25,236 | DBConnector | INFO  | Prices successfully updated
+2022-06-29 17:47:25,236 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 17:47:40,074 | root | INFO  | Got 'g' from user
+2022-06-29 17:47:40,074 | root | INFO  | Trying to create Excel on demand
+2022-06-29 17:47:40,074 | DBConnector | INFO  | Trying to connect to localhost/mydb as root
+2022-06-29 17:47:40,076 | DBConnector | INFO  | Connection successfully set
+2022-06-29 17:47:40,076 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 17:47:40,076 | DBConnector | INFO  | Trying to query products from database
+2022-06-29 17:47:40,081 | DBConnector | INFO  | Products successfully queried
+2022-06-29 17:47:40,236 | DBConnector | INFO  | Excel file successfully created
+2022-06-29 17:47:40,236 | DBConnector | INFO  | Closing connection to localhost/mydb as root
+2022-06-29 17:47:50,810 | root | INFO  | Got 'q' from user
+2022-06-29 17:47:50,810 | root | INFO  | Closing app

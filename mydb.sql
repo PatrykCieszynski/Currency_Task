@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Cze 2022, 13:04
+-- Czas generowania: 29 Cze 2022, 17:48
 -- Wersja serwera: 10.4.24-MariaDB
 -- Wersja PHP: 8.1.6
 
@@ -338,13 +338,13 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductID`, `DepartmentID`, `Category`, `IDSKU`, `ProductName`, `Quantity`, `UnitPrice`, `Ranking`, `ProductDesc`, `UnitsInStock`, `UnitsInOrder`, `Picture`, `UnitPriceUSD`, `UnitPriceEURO`) VALUES
-('PR4192', 'D1183', 'Makeup', 'SKU9763', 'Maybelline New York Super Stay', 1, '10', 88, 'Matte ink lip color', 438, 300, 0x6d617962656c6c696e656e796c69702e6a7067, '44.37', '46.97'),
-('PR4298', 'D1183', 'Beauty appliances', 'SKU76G2', 'T3 Featherweight', 1, '247', 5, 'Hair dryer with 2 speed settings, 3 heat settings and a 2-year warranty', 87, 20, 0x543368616972647279657277686974652e706e67, '1095.91', '1160.04'),
-('PR4394', 'D1145', 'Sneakers', 'SKU8723', 'Under Armour Micro G running shoes', 1, '67', 12, 'Black running shoes with rubber sole & breathable mesh', 566, 66, 0x756e64657261726d6f7572626c61636b2e6a7067, '297.27', '314.67'),
-('PR4467', 'D1178', 'Adaptor', 'SKUGNXW', 'Poweradd power converter', 1, '30', 701, '2-outlet universal travel adapter', 5000, 20, 0x706f776572616464636f6e7665727465722e706e67, '133.11', '140.90'),
-('PR4689', 'D1145', 'Jewelery', 'SKU7263', '10k Rose Gold plated white Gold Diamond ring', 1, '538', 83766, '0.75cttw, I-J Color, I2-I3 Clarity', 30, 4, 0x6469616d6f6e6472696e672e706e67, '2387.05', '2526.72'),
-('PR4769', 'D1178', 'Tablet', 'SKU6789', 'Kindle Paperwhite', 1, '140', 767, 'Tablet with 6\" high-resolution display with builtin light', 3987, 200, 0x6b696e646c652e6a7067, '621.17', '657.51'),
-('PR4789', 'D1178', 'Laptop', 'SKUB00V', 'ASUS Chromebook C201', 1, '270', 18, '11.6 inch latop, navy blue', 4534, 445, 0x617375736368726f6d65626f6f6b2e706e67, '1197.96', '1268.06');
+('PR4192', 'D1183', 'Makeup', 'SKU9763', 'Maybelline New York Super Stay', 1, '10', 88, 'Matte ink lip color', 438, 300, 0x6d617962656c6c696e656e796c69702e6a7067, '44.53', '46.81'),
+('PR4298', 'D1183', 'Beauty appliances', 'SKU76G2', 'T3 Featherweight', 1, '247', 5, 'Hair dryer with 2 speed settings, 3 heat settings and a 2-year warranty', 87, 20, 0x543368616972647279657277686974652e706e67, '1099.97', '1156.18'),
+('PR4394', 'D1145', 'Sneakers', 'SKU8723', 'Under Armour Micro G running shoes', 1, '67', 12, 'Black running shoes with rubber sole & breathable mesh', 566, 66, 0x756e64657261726d6f7572626c61636b2e6a7067, '298.37', '313.62'),
+('PR4467', 'D1178', 'Adaptor', 'SKUGNXW', 'Poweradd power converter', 1, '30', 701, '2-outlet universal travel adapter', 5000, 20, 0x706f776572616464636f6e7665727465722e706e67, '133.60', '140.43'),
+('PR4689', 'D1145', 'Jewelery', 'SKU7263', '10k Rose Gold plated white Gold Diamond ring', 1, '538', 83766, '0.75cttw, I-J Color, I2-I3 Clarity', 30, 4, 0x6469616d6f6e6472696e672e706e67, '2395.88', '2518.32'),
+('PR4769', 'D1178', 'Tablet', 'SKU6789', 'Kindle Paperwhite', 1, '140', 767, 'Tablet with 6\" high-resolution display with builtin light', 3987, 200, 0x6b696e646c652e6a7067, '623.46', '655.33'),
+('PR4789', 'D1178', 'Laptop', 'SKUB00V', 'ASUS Chromebook C201', 1, '270', 18, '11.6 inch latop, navy blue', 4534, 445, 0x617375736368726f6d65626f6f6b2e706e67, '1202.39', '1263.84');
 
 -- --------------------------------------------------------
 
