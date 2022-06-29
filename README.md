@@ -18,5 +18,5 @@ exchange rate from the National Bank of Poland and will update prices for produc
 Data provided to import into database was throwing errors. This happend because table was set to CHECK (USER_TYPE = 'S'),
 where provided data has records with only USER_TYPE = 'B', so I needed to alter database a little to accept anything at all.
 
-###Author
+### Author
 patrykciesz@gmail.com
