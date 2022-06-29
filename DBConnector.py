@@ -13,7 +13,6 @@ class DBConnector:
         self.password = password
         self.engine = None
         self.connection = None
-        self.cursor = None
 
     def connect(self):
         try:
@@ -23,7 +22,7 @@ class DBConnector:
             self.connection = self.engine.connect()
         except exc.SQLAlchemyError as err:
             logger.error(err)
-            raise ConnectionError(err)
+            raise ConnectionError()
         else:
             logger.info("Connection successfully set")
 
@@ -36,26 +35,30 @@ class DBConnector:
             self.connection.execute(query)
         except exc.SQLAlchemyError as err:
             logger.error(err)
-            print("Updating failed", err)
+            print("Updating failed")
         else:
             logger.info("Prices successfully updated")
 
     def get_products(self):
+        logger.info("Trying to query products from database")
+        return sql.read_sql(("select ProductID, DepartmentID, Category, IDSKU, ProductName, Quantity, UnitPrice,"
+                             " UnitPriceUSD, UnitPriceEURO, Ranking, UnitsInStock, UnitsInOrder"
+                             " from product"), self.connection)
+
+    def create_excel(self, filename):
         try:
             logger.info("Trying to query products from database")
-            records = sql.read_sql(("select ProductID, DepartmentID, Category, IDSKU, ProductName, Quantity, UnitPrice,"
-                                    " UnitPriceUSD, UnitPriceEURO, Ranking, UnitsInStock, UnitsInOrder"
-                                    " from product"), self.connection)
+            records = self.get_products()
         except exc.SQLAlchemyError as err:
             logger.error(err)
-            print("Query failed", err)
+            print("Query failed")
         else:
             logger.info("Products successfully queried")
             try:
-                records.to_excel("products.xlsx")
+                records.to_excel(f"{filename}.xlsx")
             except PermissionError as err:
                 logger.error(err)
-                print("Saving to file failed", err)
+                print("Saving to file failed")
             else:
                 logger.info("Excel file successfully created")
 
